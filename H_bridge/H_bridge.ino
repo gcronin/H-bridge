@@ -14,19 +14,38 @@ void setup() {
   pinMode(NPN_right, OUTPUT);  
   pinMode(PNP_left, OUTPUT);  
   Serial.begin(9600);
-  Serial.println("Type F (forward), R (reverse), or S (stop)"); 
+  //Serial.println("Type F (forward), R (reverse), or S (stop)"); 
 }
 
 
 void loop()
 {
-  int pwm_power = map(analogRead(A5), 0, 1023, 128, 255);
+  int potReading = analogRead(A5);
+  int pwm_power = 0;
+  
+  if(potReading > 600)
+  {
+    mode = 70;
+    pwm_power = map(potReading, 600, 1023, 128, 255);  
+  }
+  
+  else if(potReading > 440)
+  {
+    mode = 0;
+  }
+
+  else
+  {
+    mode = 82;
+    pwm_power = map(potReading, 440, 0, 128, 255); 
+  }
+  /*
   if(Serial.available() > 0 )
   {
     mode = Serial.read();
     Serial.write(mode);
     Serial.println("");
-  }
+  } */
   
   // COUNTERCLOCKWISE
   if(mode == 70)
