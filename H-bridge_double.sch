@@ -5856,6 +5856,60 @@ W = angled&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="solpad">
+<description>&lt;b&gt;Solder Pads/Test Points&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="LSP10">
+<description>&lt;b&gt;SOLDER PAD&lt;/b&gt;&lt;p&gt;
+drill 1.0 mm</description>
+<wire x1="-1.27" y1="0.254" x2="-1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.254" x2="1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="0.254" x2="1.143" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.254" x2="1.143" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.254" x2="-1.143" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.254" x2="-1.143" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="0.254" x2="0.635" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="-1.143" y1="-0.254" x2="-0.635" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="0.254" x2="0.635" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="0.254" x2="-0.635" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="-0.254" x2="1.143" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.635" y1="0.254" x2="-0.635" y2="-0.254" width="0.1524" layer="51"/>
+<wire x1="-0.635" y1="0.254" x2="-1.143" y2="0.254" width="0.1524" layer="51"/>
+<wire x1="-0.635" y1="-0.254" x2="0.635" y2="-0.254" width="0.1524" layer="51"/>
+<pad name="MP" x="0" y="0" drill="1.016" diameter="2.159" shape="octagon"/>
+<text x="-1.27" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="0" y="0.254" size="0.0254" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="LSP">
+<wire x1="-1.016" y1="2.032" x2="1.016" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="0" x2="1.016" y2="2.032" width="0.254" layer="94"/>
+<circle x="0" y="1.016" radius="1.016" width="0.4064" layer="94"/>
+<text x="-1.27" y="2.921" size="1.778" layer="95">&gt;NAME</text>
+<pin name="MP" x="0" y="-2.54" visible="off" length="short" direction="pas" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="LSP10" prefix="LSP">
+<description>&lt;b&gt;SOLDER PAD&lt;/b&gt;&lt;p&gt; drill 1.0 mm, distributor Buerklin, 12H555</description>
+<gates>
+<gate name="1" symbol="LSP" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LSP10">
+<connects>
+<connect gate="1" pin="MP" pad="MP"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5900,6 +5954,8 @@ W = angled&lt;p&gt;
 <part name="C2" library="capacitor-wima" deviceset="C" device="2.5/2"/>
 <part name="R10" library="pot" deviceset="TRIM_EU-" device="CA6V"/>
 <part name="VCC" library="con-lstb" deviceset="MA03-1" device=""/>
+<part name="5V" library="solpad" deviceset="LSP10" device=""/>
+<part name="5-V" library="solpad" deviceset="LSP10" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -5951,6 +6007,8 @@ W = angled&lt;p&gt;
 <instance part="C2" gate="G$1" x="162.56" y="68.58" rot="R90"/>
 <instance part="R10" gate="1" x="162.56" y="-2.54"/>
 <instance part="VCC" gate="G$1" x="66.04" y="106.68" rot="R270"/>
+<instance part="5V" gate="1" x="86.36" y="-22.86" rot="R270"/>
+<instance part="5-V" gate="1" x="172.72" y="-12.7" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -6173,15 +6231,10 @@ W = angled&lt;p&gt;
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="R5" gate="1" pin="A"/>
-<wire x1="66.04" y1="-7.62" x2="66.04" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="ARDUINO_POWER" gate="-2" pin="S"/>
-<wire x1="66.04" y1="-15.24" x2="78.74" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="-15.24" x2="83.82" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="-15.24" x2="78.74" y2="-35.56" width="0.1524" layer="91"/>
-<wire x1="78.74" y1="-35.56" x2="162.56" y2="-35.56" width="0.1524" layer="91"/>
 <pinref part="R10" gate="1" pin="A"/>
-<wire x1="162.56" y1="-35.56" x2="162.56" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="-12.7" x2="162.56" y2="-7.62" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="-12.7" x2="162.56" y2="-12.7" width="0.1524" layer="91"/>
+<pinref part="5-V" gate="1" pin="MP"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -6303,6 +6356,17 @@ W = angled&lt;p&gt;
 <wire x1="137.16" y1="-27.94" x2="137.16" y2="-22.86" width="0.1524" layer="91"/>
 <pinref part="X1" gate="-5" pin="S"/>
 <wire x1="137.16" y1="-22.86" x2="139.7" y2="-22.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$19" class="0">
+<segment>
+<pinref part="ARDUINO_POWER" gate="-2" pin="S"/>
+<wire x1="83.82" y1="-22.86" x2="83.82" y2="-15.24" width="0.1524" layer="91"/>
+<junction x="83.82" y="-15.24"/>
+<pinref part="R5" gate="1" pin="A"/>
+<wire x1="66.04" y1="-7.62" x2="66.04" y2="-15.24" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="-15.24" x2="83.82" y2="-15.24" width="0.1524" layer="91"/>
+<pinref part="5V" gate="1" pin="MP"/>
 </segment>
 </net>
 </nets>
