@@ -20,7 +20,7 @@ void setup() {
 
 void loop()
 {
-  int potReading = analogRead(A5);
+  int potReading = analogRead(A1);
   int pwm_power = 0;
   
   if(potReading > 600)
