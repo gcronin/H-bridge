@@ -1,17 +1,17 @@
 
 //LEFT SIDE MOTOR
-int NPN_left = 3;
-int PNP_right = 2;
+int NPN_left = 3;  //C
+int PNP_right = 2; //B
 
-int NPN_right = 9;
-int PNP_left = 8;
+int NPN_right = 9; //D
+int PNP_left = 8;  //A
 
 //RIGHT SIDE MOTOR
-int NPNleft = 5;
-int PNPright = 4;
+int NPNleft = 5;  //G
+int PNPright = 4; //F
 
-int NPNright = 11;
-int PNPleft = 10;
+int NPNright = 11;  //H
+int PNPleft = 10;  //E
 
 
 void setup() {

@@ -1,8 +1,8 @@
-int NPN_left = 3;
-int PNP_right = 2;
+int NPN_left = 3;  // Transistor 3
+int PNP_right = 2; // Transistor 2
 
-int NPN_right = 9;
-int PNP_left = 8;
+int NPN_right = 9; // Transistor 4
+int PNP_left = 8;  // Transistor 1
 
 byte mode = 0;
 
